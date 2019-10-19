@@ -1,0 +1,36 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      var costs = [
+        ['Категории', 'Сумма'],
+        ['Молоко', 11],
+        ['Мясо', 2],
+        ['Хлеб', 2],
+        ['Яблоки', 2],
+        ['Бананы', 7]
+      ];
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable(costs);
+
+        var options = {
+          title: 'Мои расходы',
+          pieSliceText: 'value'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </body>
+</html>
